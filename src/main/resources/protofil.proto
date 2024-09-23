@@ -1,0 +1,33 @@
+syntax="proto3";
+option java_package="ma.group.customerfullwebservices.stub";
+service CustomerGrpc{
+  rpc getAllCustomers(GetAllCustomer)returns (CustomerResponse);
+  rpc getCustomerByid(CustomerId) returns (CustomerResponseByid);
+  rpc addCustomer(CustomerRequestSave) returns (CustomerResponsesave);
+}
+message GetAllCustomer{};
+message CustomerResponse{
+  repeated Customer customers=1;
+}
+message Customer {
+   int64 id = 1;
+   string nom = 2;
+   string mail = 3;
+}
+message CustomerId{
+   int64 id=1;
+}
+message CustomerResponseByid{
+   Customer customer=1;
+}
+message CustomerRequest{
+   string nom=1;
+   string mail=2;
+}
+message CustomerResponsesave{
+   Customer customer=1;
+}
+message CustomerRequestSave{
+  CustomerRequest customerRequest=1;
+}
+

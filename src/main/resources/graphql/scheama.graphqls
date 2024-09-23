@@ -1,0 +1,17 @@
+type Query {
+    getCustomers:[Customer],
+    getCustomerById(id:Int):Customer
+}
+type Mutation {
+    addCustomer(customer:CustomerRequest):Customer
+}
+
+type Customer{
+    id:Int,
+    nom:String,
+    mail:String
+}
+input  CustomerRequest{
+    nom:String,
+    mail:String
+}
